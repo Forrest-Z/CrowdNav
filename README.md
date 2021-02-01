@@ -1,26 +1,31 @@
+# Robot Crowd Navigation through Predictive Pedestrian Modeling
+The control stack for this robot has been built based on this [repo](https://github.com/kylevedder/ServiceRobotControlStack). The obstacle detector package is provided by this [repo](https://github.com/tysik/obstacle_detector) and the pedestrian simulator is provided by this [repo] (https://github.com/srl-freiburg/pedsim_ros).
 
-Clone files to your ~/ws/src
+We present a local path planning algorithm, deployable on a service robot, that generates probabilistic models about the future as outlined in our paper in `paper/`. The implementation can be found in `control_stack/include/cs/path_finding/rrt`. This algorithm can be deployed on a service robot in different simulation environments and demonstration videos can be found in `demos/`.
 
-$ gedit ~/.bashrc
+## Requirements
 
-$ export TURTLEBOT3_MODEL=waffle_pi
+- ROS Melodic
 
-Save and close ~/.bashrc
+## Installation
+- Clone files to your <catkin workspace folder>/src
 
-$ source ~/.bashrc
+## Usage
+- Ensure that you are in the root directory of your catkin workspace
+$ source ./devel/setup.bash
 
-$ cd ~/ws
+- To run a single obstacle environment:
+$ roslaunch pedsim_simulator 700_1obst.launch
 
-$ catkin_make
+- To run a hallway with pedestrian traffic against the service robot:
+$ roslaunch pedsim_simulator 700_against_1way.launch
 
-$ source devel/setup.bash
+- To run a hallway with two way pedestrian traffic:
+$ roslaunch pedsim_simulator 700_2way_hallway.launch
 
-Ensure that you are in the ws level of your directory
+- To run a four way interection:
+$ roslaunch pedsim_simulator 700_4way.launch
 
-$ roslaunch pedsim_simulator combo.launch 
+- Note that for each scenerio you want to run, you will need to update the map path in corresponding nav_config_700_*.lua file in `control_stack/config` to match your absolute path
 
-$ rosrun control_stack nav_node
-
-$ roslaunch obstacle_detector nodes.launch
-
-This repository contains end-to-end functionality to control a turtlebot ROS node and autonomously navigate through complex pedestrian environments simulated in Gazebo. 
+- Analytics for each run will be automatically printed on the terminal

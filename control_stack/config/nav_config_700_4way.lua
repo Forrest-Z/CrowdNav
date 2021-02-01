@@ -42,8 +42,7 @@ pf = {
   kTemporalConsistencyWeight = 0;
 
   -- *********************************************
-  -- map = "/home/zf/Documents/final/src/CrowdNav/control_stack/maps/700_4way.map";
-  map = "/home/sebastian/catkin_ws/src/CrowdNav/control_stack/maps/700_4way.map";
+  map = "/home/sebastian/catkin_ws/src/CrowdNav/control_stack/maps/700_4way.map"; -- Update this to your absolute path
   goal_poses = {{35,20,0}};
   start_pose = {5,20,0};
   -- *********************************************
