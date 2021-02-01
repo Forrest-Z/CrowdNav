@@ -31,6 +31,6 @@ We present a local path planning algorithm, deployable on a service robot, that 
 
 `$ roslaunch pedsim_simulator 700_4way.launch`
 
-- Note that for each scenerio you want to run, you will need to update the map path in corresponding nav_config_700_*.lua file in `control_stack/config` to match your absolute path
+- Note that for each scenerio you want to run, you will need to update the map path in the corresponding nav_config_700_*.lua file in `control_stack/config` to match your absolute path
 
 - Analytics for each run will be automatically printed on the terminal
